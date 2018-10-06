@@ -108,8 +108,7 @@ namespace WpfProbak
                 }
                 nyeroszamok[i] = temp;
 
-                //textb_nyeroszam.Text = nyeroszamok[i].ToString();
-                //nyertesSzamok.Children.Add(textb_nyeroszam);
+                
 
             }
             Array.Sort(nyeroszamok);
