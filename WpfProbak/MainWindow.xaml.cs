@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -155,6 +156,7 @@ namespace WpfProbak
                 if (Array.IndexOf(szamok, Convert.ToInt32(sg.Content))==-1)
                 {
                     szamok[szamlalo] = Convert.ToInt32(sg.Content);
+                    //Debug.WriteLine(szamok[szamlalo]);
                     szamlalo++;
                 }
                 
