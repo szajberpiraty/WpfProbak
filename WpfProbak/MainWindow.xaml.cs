@@ -45,6 +45,9 @@ namespace WpfProbak
             talalat = 0;
             szamok = new int[5];
             nyeroszamok = new int[5];
+            balpan.Children.Clear();
+            sokgomb();
+            buttonNewGame.IsEnabled = false;
 
         }
 
