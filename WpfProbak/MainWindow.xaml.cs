@@ -98,7 +98,7 @@ namespace WpfProbak
         {
             for (int i = 0; i < 5; i++)
             {
-                var textb_nyeroszam = new TextBox();
+                
                 var temp= nyeroszam.Next(1, 91);
                 
                 //figyelni, hogy ne legyen ugyanaz a nyerőszám
@@ -108,10 +108,18 @@ namespace WpfProbak
                 }
                 nyeroszamok[i] = temp;
 
-                textb_nyeroszam.Text = nyeroszamok[i].ToString();
-                nyertesSzamok.Children.Add(textb_nyeroszam);
+                //textb_nyeroszam.Text = nyeroszamok[i].ToString();
+                //nyertesSzamok.Children.Add(textb_nyeroszam);
 
             }
+            Array.Sort(nyeroszamok);
+            for (int i = 0; i < nyeroszamok.Length; i++)
+            {
+                var textb_nyeroszam = new TextBox();
+                textb_nyeroszam.Text = nyeroszamok[i].ToString();
+                nyertesSzamok.Children.Add(textb_nyeroszam);
+            }
+
             var sorsolasEredmeny = new TextBox();
             sorsolasEredmeny.Text = "Találat:" + Eredmeny().ToString();
             nyertesSzamok.Children.Add(sorsolasEredmeny);
