@@ -98,7 +98,14 @@ namespace WpfProbak
             for (int i = 0; i < 5; i++)
             {
                 var textb_nyeroszam = new TextBox();
-                nyeroszamok[i] = nyeroszam.Next(1, 91);
+                var temp= nyeroszam.Next(1, 91);
+                
+                //figyelni, hogy ne legyen ugyanaz a nyerőszám
+                while (Array.IndexOf(nyeroszamok,temp)>-1)
+                {
+                    temp = nyeroszam.Next(1, 91);
+                }
+                nyeroszamok[i] = temp;
 
                 textb_nyeroszam.Text = nyeroszamok[i].ToString();
                 nyertesSzamok.Children.Add(textb_nyeroszam);
