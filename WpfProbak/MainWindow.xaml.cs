@@ -151,7 +151,13 @@ namespace WpfProbak
                 //sg.Background = new SolidColorBrush(Colors.Gold);
                 sg.Foreground = Brushes.Red;
                 sg.Background = Brushes.Gold;
-                szamok[szamlalo] = Convert.ToInt32(sg.Content);
+
+                if (Array.IndexOf(szamok, Convert.ToInt32(sg.Content))==-1)
+                {
+                    szamok[szamlalo] = Convert.ToInt32(sg.Content);
+                    szamlalo++;
+                }
+                
             }
             else
             {
@@ -161,8 +167,9 @@ namespace WpfProbak
 
 
             }
-            allapot.Text = (szamlalo + 1).ToString();
-            szamlalo++;
+            //allapot.Text = (szamlalo + 1).ToString();
+            allapot.Text = (szamlalo).ToString();
+
 
             //allapot.Text = (string)sg.Content;
 
