@@ -46,6 +46,7 @@ namespace WpfProbak
             szamok = new int[5];
             nyeroszamok = new int[5];
             balpan.Children.Clear();
+            nyertesSzamok.Children.Clear();
             sokgomb();
             buttonNewGame.IsEnabled = false;
 
@@ -58,6 +59,7 @@ namespace WpfProbak
             butt.Content = "Klikkgomb" + 2;
             butt.Name = "buttgomb";
             gpan.Children.Add(butt);
+            
 
         }
         private void sokgomb()
@@ -99,12 +101,13 @@ namespace WpfProbak
                 nyeroszamok[i] = nyeroszam.Next(1, 91);
 
                 textb_nyeroszam.Text = nyeroszamok[i].ToString();
-                gpan.Children.Add(textb_nyeroszam);
+                nyertesSzamok.Children.Add(textb_nyeroszam);
 
             }
             var sorsolasEredmeny = new TextBox();
             sorsolasEredmeny.Text = "Találat:" + Eredmeny().ToString();
-            gpan.Children.Add(sorsolasEredmeny);
+            nyertesSzamok.Children.Add(sorsolasEredmeny);
+            buttonSorsolas.IsEnabled = false;
         }
 
         private int Eredmeny()
@@ -113,7 +116,7 @@ namespace WpfProbak
             {
                 for (int j = 0; j < nyeroszamok.Length; j++)
                 {
-                    if (szamok[i] == nyeroszamok[i])
+                    if (szamok[i] == nyeroszamok[j])
                     {
                         talalat++;
                     }
@@ -176,6 +179,14 @@ namespace WpfProbak
                     ch.Background = Brushes.Green;
 
                 }
+                if (Array.IndexOf(szamok, Convert.ToInt32(ch.Content)) > -1 && Array.IndexOf(nyeroszamok, Convert.ToInt32(ch.Content)) > -1)
+                {
+
+                    ch.Foreground = Brushes.DarkBlue;
+                    ch.Background = Brushes.Red;
+
+                }
+
                 //allapot.Text+=ch.Content;
 
             }

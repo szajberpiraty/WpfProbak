@@ -35,6 +35,9 @@
 					Content="Új játék"
 					Click="buttonNewGame_Click" />
             </StackPanel>
+            <StackPanel x:Name="nyertesSzamok">
+                
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
